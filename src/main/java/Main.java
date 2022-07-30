@@ -26,6 +26,7 @@ public class Main implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent nativeEvent) {
+        System.out.println("Pressed = \"" + NativeKeyEvent.getKeyText(nativeEvent.getKeyCode()) +"\"");
         if (nativeEvent.getKeyCode() == NativeKeyEvent.VC_Z && !this.isRun) {
             this.isRun = true;
             if (this.scriptThread == null) {
@@ -63,5 +64,7 @@ public class Main implements NativeKeyListener {
         Main main = new Main(new Robot());
 
         GlobalScreen.addNativeKeyListener(main);
+
+        System.out.println("Press \"Z\" to run script, press any button to stop script");
     }
 }
